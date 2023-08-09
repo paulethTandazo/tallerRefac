@@ -19,7 +19,7 @@ public class Medico extends Persona {
                 "(Este metodo solo debe ser utilizado en esta clase, nadie mas lo puede utilizar)");
     }
 
-    public void adminMedicamento(Paciente paciente, String medicamento) {
+    public void administrarMedicamento(Paciente paciente, String medicamento) {
         // Implementación para administrar medicamentos al paciente.
     }
 }
