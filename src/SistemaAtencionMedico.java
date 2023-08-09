@@ -30,6 +30,9 @@ public class SistemaAtencionMedico {
         paciente.historialMedico.getConsultas().add(consulta); // Aún debes solucionar esta parte
     }
 
+    public HistorialMedico getHistorialMedico(){
+    return this.historialMedico();
+    }
     private double calcularValorFinalConsulta(ServicioMedico servicioMedico, Paciente paciente) {
         double costoConsulta = servicioMedico.getCosto();
         if (paciente.esAdultoMayor()) {
