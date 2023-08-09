@@ -1,36 +1,26 @@
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Consulta {
-    public int dia;
-    public int mes;
-    public int año;
-    private String hora;
+    private LocalDateTime fecha;
     private Paciente paciente;
     private Medico medico;
     private ServicioMedico servicioMedico;
     private boolean realizada;
     private String diagnostico;
     private String tratamiento;
-    private List<String> examenesMedicos;
+    private List<String> examenesMedicos= new ArrayList<>();
 
-    public Consulta(int dia, int mes, int año, String hora, Paciente paciente, Medico medico, ServicioMedico servicioMedico, String diagnostico, String tratamiento, List<String> examenesMedicos) {
-        this.dia = dia;
-        this.mes = mes;
-        this.año = año;
-        this.hora = hora;
+    public Consulta(LocalDateTime fecha, Paciente paciente, Medico medico, ServicioMedico servicioMedico, String diagnostico, String tratamiento, List<String> examenesMedicos) {
+       this.fecha= fecha;
         this.servicioMedico = servicioMedico;
         this.paciente = paciente;
         this.medico = medico;
         this.realizada = false;
     }
 
-    public String getHora() {
-        return hora;
-    }
-
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
 
     public Paciente getPaciente() {
         return paciente;
@@ -73,13 +63,17 @@ public class Consulta {
     }
 
     public List<String> getExamenesMedicos() {
-        return examenesMedicos;
+        return Collections.unmodifiableList(examenesMedicos);
     }
-
-    public void setExamenesMedicos(List<String> examenesMedicos) {
-        this.examenesMedicos = examenesMedicos;
+    public void añadirExamen(String examen){
+        examenesMedicos.add(examen);
     }
-
+   public void eliminarExamen(String examen){
+        examenesMedicos.remove(examen);
+    }
+    public void limpiarExamenesMedicos() {
+        examenesMedicos.clear();
+    }
     public ServicioMedico getServicioMedico() {
         return servicioMedico;
     }
